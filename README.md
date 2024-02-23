@@ -21,7 +21,14 @@ Al comenzar un nuevo año, hay que realizar el siguiente proceso
    También hay que asegurarse que estén las tablas [capacidad] y [dic_niveles] en valle_diccionario que en teoría no cambian año a año
    Se ejecuta genera_apertura_presupuesto.sql en el schema valle_diccionario y queda una tabla [presupuesto] en valle_diccionario.
 
-3) El siguiente paso es generar el producto_cruz de hoteles, semanas, paises, habitaciones, niveles del año en curso. 
+3) El siguiente paso es generar el producto_cruz de hoteles, semanas, paises, habitaciones, niveles del año en curso y que queda en la tabla [producto_cruz] en valle_diccionario.
+   Antes de generarlo, se recomienda copiar la tabla producto_cruz del año previo y guardarla como producto_cruz_YYYY(-1).
+   En el schema valle_diccionario se debe ejecutar entonces el script YYYYMMDD _generar_producto_cruz_del_agno_YYYY.sql.
+   Este script debe modificarse cada año para seleccionar un rango de fechas de vista apropiados para el año que de va a trabajar (por ejenplo, desde el VIERNES 20231110 al viernes 20241227
+   para el año 2024) y se debe cambiar el año en el query que crea aux_semana_temp para que sea el año que se está trabajando.
+   El producto_cruz requiere que las tablas [tmp_fecha_vista_ay_ly_lw] (que tiene las fechas de los viernes al menos hasta el último viernes del año que se va a trabajar)
+   y la tabla [semanas] que debe tener para cada día del año que se va a trabajar qué semana del año es y qué [semana_temp] del año es. [semana_temp] es la semana de la temporada en valle nevado
+   que es 1 la tercera o cuarta semana de junio y llega a la 14,15 o 16 a fines de Septiembre según lo que dure la nieve.   
    
     
 
