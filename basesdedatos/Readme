@@ -1,0 +1,4 @@
+En este directorio se respalda la base de datos valle_diccionario, a la que se le debe agregar la tabla codigo_ocupa yla tabla
+equivalencia_hotel_habitaciones. Con la base de datos valle_diccionario completa y la base valle_lastview con opdat, opfho y optar, 
+se puede ejecutar el proceso semanal en la base de datos valle_rm_actual.
+Se necesita tambien la base de 2018 en valle_rm_20180921, particularmente la table ft_overview como llly 
