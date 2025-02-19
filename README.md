@@ -29,7 +29,12 @@ Al comenzar un nuevo año, hay que realizar el siguiente proceso
    para el año 2024) y se debe cambiar el año en el query que crea aux_semana_temp para que sea el año que se está trabajando.
    El producto_cruz requiere que las tablas [tmp_fecha_vista_ay_ly_lw] (que tiene las fechas de los viernes al menos hasta el último viernes del año que se va a trabajar)
    y la tabla [semanas] que debe tener para cada día del año que se va a trabajar qué semana del año es y qué [semana_temp] del año es. [semana_temp] es la semana de la temporada en valle nevado
-   que es 1 la tercera o cuarta semana de junio y llega a la 14,15 o 16 a fines de Septiembre según lo que dure la nieve.   
+   que es 1 la tercera o cuarta semana de junio y llega a la 14,15 o 16 a fines de Septiembre según lo que dure la nieve.
+
+5) La tabla [valle_diccionario].[parametros] debe ser completada para todas las fechas vista de [tmp_fecha_vista_ay_ly_lw], con los valores que corresponda. Se creo el script importa_parametros_csv.sql para importar esa tabla desde un archivo plano.
+6) La tabla  [valle_diccionario].[codigo_ocupa] debe ser cargada. Se creo el script importa_codigo_ocupa_csv.sql para importar esa tabla desde un archivo plano.
+7) Se debe modificar el script de python carga_opdat_opfho_optar_azure.py que captura los datos semanalmente desde SQL Server de Valle Nevado para copiarlos en mysql. Se deben actualizar los años de los dos SELECT (opdat y opfho) para que solo traigan datos de uso del año anterior y el actual.
+8) 
    
     
 
