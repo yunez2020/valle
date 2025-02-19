@@ -16,12 +16,13 @@ Al comenzar un nuevo año, hay que realizar el siguiente proceso
 2) Cargar el presupuesto del año en curso. Esto se hace en el schema valle_diccionario.
    Para esto hay que primero asegurarse que la tabla ppto_original_excel que viene del año anterior se renombre ppto_original_excel_AAAA donde AAAA es el año de ese presupuesto.
    Luego, hay que cargar el excel del presupuesto en una nueva tabla ppto_original_excel en el schema valle_diccionario.
-   La tabla ppto_original_excel tiene 5 columnas: hotel varchar(3) PK, semana_temp integer PK, pos varchar(3) PK, ppto_nc decimal(65,30), ppto_ingreso decimal(65,30) 
+   La tabla ppto_original_excel tiene 5 columnas: hotel varchar(3) PK, semana_temp integer PK, pos varchar(3) PK, ppto_nc decimal(65,30), ppto_ingreso decimal(65,30).
+   El script importa_presupuesto_csv permite cargar la tabla ppto_original_excel con el presupuesto en archivo plano csv. Hay que cambiar el nombre del archivo csv.
    Lo único que se debe actualizar del código genera_apertura_presupuesto.sql es cambiar el valor año del select que está en el insert into presupuesto.
    También hay que asegurarse que estén las tablas [capacidad] y [dic_niveles] en valle_diccionario que en teoría no cambian año a año
    Se ejecuta genera_apertura_presupuesto.sql en el schema valle_diccionario y queda una tabla [presupuesto] en valle_diccionario.
 
-3) El siguiente paso es generar el producto_cruz de hoteles, semanas, paises, habitaciones, niveles del año en curso y que queda en la tabla [producto_cruz] en valle_diccionario.
+4) El siguiente paso es generar el producto_cruz de hoteles, semanas, paises, habitaciones, niveles del año en curso y que queda en la tabla [producto_cruz] en valle_diccionario.
    Antes de generarlo, se recomienda copiar la tabla producto_cruz del año previo y guardarla como producto_cruz_YYYY(-1).
    En el schema valle_diccionario se debe ejecutar entonces el script YYYYMMDD _generar_producto_cruz_del_agno_YYYY.sql.
    Este script debe modificarse cada año para seleccionar un rango de fechas de vista apropiados para el año que de va a trabajar (por ejenplo, desde el VIERNES 20231110 al viernes 20241227
